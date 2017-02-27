@@ -135,13 +135,28 @@ export default Ember.Route.extend({
 </div>
 ```
 
-- open up app/templates/application.hbs and add the following immediately above this line: `</div><!--/.container-fluid -->`:
+- open up app/application/template.hbs and add the following immediately above this line: `</div><!--/.container-fluid -->`:
 
 ```hbs
 <ul class="nav navbar-nav">
   <li>{{#link-to "index" }}Home{{/link-to}}</li>
   <li>{{#link-to "items" }}Items{{/link-to}}</li>
 </ul>
+```
+
+### Add index controller
+- `ember g controller index`
+- open app/index/controller.js and add the following to the controller definition:
+
+```js
+actions: {
+  doSearch () {
+    const q = this.get('q');
+    this.transitionToRoute('items', {
+      queryParams: { q }
+    });
+  }
+}
 ```
 
 - click on the home link and enter search terms
