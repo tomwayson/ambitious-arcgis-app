@@ -1,3 +1,5 @@
+# Building an Application
+
 ## Scaffold the application
 
 Open a terminal to the root folder where you keep your projects and enter:
@@ -46,8 +48,7 @@ body {
 
 ## Scaffold some routes
 
-TODO: About Routes / Controllers / Templates
-
+About Routes / Controllers / Templates
 
 ### Add items route
 - set `"usePods": true` in .ember-cli
@@ -88,3 +89,53 @@ export default Ember.Route.extend({
 ```
 
 - visit http://localhost:4200/items?q=test and http://localhost:4200/items?q=test&type=maps
+
+### Add index route
+- `ember generate route index`
+- Download https://livingatlas.arcgis.com/assets/img/background-banners/Banner9.jpg and save at /public/assets/images/Banner9.jpg
+- open app/styles/app.css and add:
+
+```css
+/* index */
+.jumbotron-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./images/Banner9.jpg) center top/cover no-repeat;
+}
+.jumbotron-hero h1 {
+  color:#fff;
+  text-shadow: 0 3px 2px rgba(0,0,0,0.75);
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 40px;
+}
+```
+
+- open app/index/template.hbs and add
+
+```hbs
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron jumbotron-hero">
+  <h1>Ambitious ArcGIS App</h1>
+  <form {{action "doSearch" on="submit"}}>
+    <div class="input-group input-group-lg">
+      {{input class="form-control" placeholder="search for items" value=q}}
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+  </form>
+</div>
+```
+
+- open up app/templates/application.hbs and add the following immediately above this line: `</div><!--/.container-fluid -->`:
+
+```hbs
+<ul class="nav navbar-nav">
+  <li>{{#link-to "index" }}Home{{/link-to}}</li>
+  <li>{{#link-to "items" }}Items{{/link-to}}</li>
+</ul>
+```
+
+- click on the home link and enter search terms

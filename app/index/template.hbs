@@ -1,0 +1,14 @@
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron jumbotron-hero">
+  <h1>Ambitious ArcGIS App</h1>
+  <form {{action "doSearch" on="submit"}}>
+    <div class="input-group input-group-lg">
+      {{input class="form-control" placeholder="search for items" value=q}}
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+  </form>
+</div>
