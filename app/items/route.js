@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  // from ember-arcgis-portal-services
+  itemsService: Ember.inject.service('items-service'),
+
   // changes to these query parameter will cause this route to
   // update the model by calling the "model()" hook again
   queryParams: {
@@ -14,11 +17,9 @@ export default Ember.Route.extend({
   },
 
   // the model hook is used to fetch any data based on route parameters
-  model (/* params */) {
-    // TODO: search for items using the search term and item type
-    return {
-      total: 0,
-      results: []
-    };
+  model (params) {
+    const itemsService = this.get('itemsService');
+    const q = params.q;
+    return itemsService.search({ q });
   }
 });
