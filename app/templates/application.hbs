@@ -1,17 +1,23 @@
 <div class="container">
 
   <!-- navbar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  {{#bs-navbar fluid=true as |navbar|}}
       <div class="navbar-header">
-        <span class="navbar-brand">Ambitious ArcGIS App</span>
+          {{#navbar.toggle}}
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          {{/navbar.toggle}}
+         {{#link-to "index" class="navbar-brand"}}Ambitious ArcGIS App{{/link-to}}
       </div>
-      <ul class="nav navbar-nav">
-        <li>{{#link-to "index" }}Home{{/link-to}}</li>
-        <li>{{#link-to "items" }}Items{{/link-to}}</li>
-      </ul>
-    </div><!--/.container-fluid -->
-  </nav>
+      {{#navbar.content}}
+          {{#navbar.nav as |nav|}}
+              {{#nav.item}}{{#link-to "index"}}Home{{/link-to}}{{/nav.item}}
+              {{#nav.item}}{{#link-to "items" }}Items{{/link-to}}{{/nav.item}}
+          {{/navbar.nav}}
+      {{/navbar.content}}
+  {{/bs-navbar}}
 
   <!-- page content -->
   {{outlet}}
