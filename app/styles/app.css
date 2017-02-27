@@ -21,3 +21,8 @@ body {
   border-bottom: 1px solid #fff;
   margin-bottom: 40px;
 }
+
+/* items */
+.search-form-inline {
+  margin-top: 20px;
+}
