@@ -6,10 +6,7 @@ Open a terminal to the root folder where you keep your projects and enter:
 ```shell
 ember new ambitious-arcgis-app
 cd ambitious-arcgis-app
-ember serve
 ```
-
-Open a browser to http://localhost:4200/
 
 Open IDE of choice to ambitious-arcgis-app folder
 - open app/styles/app.css and add
@@ -26,7 +23,10 @@ body {
   margin-bottom: 20px;
 }
 ```
-- open app/templates/application.hbs replace `{{welcome-page}}` with:
+- set `"usePods": true` in .ember-cli
+- move app/templates/application.hbs to app/application/template.hbs
+- delete the root level controllers, routes, and templates directories
+- open app/templates/application.hbs to app/application/template.hbs replace its contents with:
 
 ```hbs
 <div class="container">
@@ -46,14 +46,20 @@ body {
 </div> <!-- /container -->
 ```
 
+In your terminal, enter
+```shell
+ember s
+```
+
+Open a browser to http://localhost:4200/
+
 ## Scaffold some routes
 
 About Routes / Controllers / Templates
 
 ### Add items route
-- set `"usePods": true` in .ember-cli
 - `ember generate route items`
-- open app/items/route.js and add:
+- open app/items/route.js and replace its contents with:
 
 ```js
 import Ember from 'ember';
@@ -82,7 +88,7 @@ export default Ember.Route.extend({
 });
 ```
 
-- open app/items/template.hbs and add:
+- open app/items/template.hbs and replace its contents with:
 
 ```hbs
 <h2>Your search for "{{q}}" yielded {{model.total}} {{if itemType itemType "items"}}</h2>
@@ -110,7 +116,7 @@ export default Ember.Route.extend({
 }
 ```
 
-- open app/index/template.hbs and add
+- open app/index/template.hbs and replace its contents with:
 
 ```hbs
 <!-- Main component for a primary marketing message or call to action -->
