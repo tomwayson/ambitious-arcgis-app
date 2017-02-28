@@ -1,32 +1,21 @@
 # Addons
 
-http://www.ember-bootstrap.com/#/getting-started
+https://github.com/alexspeller/ember-cli-active-link-wrapper
 
-## Add ember-bootstrap
+## Add ember-cli-active-link-wrapper
 - stop app (`cmd+C`)
-- `ember install ember-bootstrap`
-- in app/app.css remove `@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";`
-- `ember serve` and visit `localhost:4200` and verify that app looks the same
-- in app/templates/application.hbs replace navbar with:
+- `ember install ember-cli-active-link-wrapper`
+- in app/application/template.hbs replace the ul.nav.navbar-nav with:
 
 ```hbs
-{{#bs-navbar fluid=true as |navbar|}}
-    <div class="navbar-header">
-        {{#navbar.toggle}}
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        {{/navbar.toggle}}
-       {{#link-to "index" class="navbar-brand"}}Ambitious ArcGIS App{{/link-to}}
-    </div>
-    {{#navbar.content}}
-        {{#navbar.nav as |nav|}}
-            {{#nav.item}}{{#link-to "index"}}Home{{/link-to}}{{/nav.item}}
-            {{#nav.item}}{{#link-to "items" }}Items{{/link-to}}{{/nav.item}}
-        {{/navbar.nav}}
-    {{/navbar.content}}
-{{/bs-navbar}}
+<ul class="nav navbar-nav">
+  {{#active-link}}
+    {{link-to "Home" "index"}}
+  {{/active-link}}
+  {{#active-link}}
+    {{link-to "Items" "items"}}
+  {{/active-link}}
+</ul>
 ```
 
 ## Add ember-arcgis-portal-services
@@ -58,7 +47,7 @@ torii: {
   // the model hook is used to fetch any data based on route parameters
   model (params) {
     const itemsService = this.get('itemsService');
-    const q = params.q;
+    const q = params.q || *;
     return itemsService.search({ q });
   }
 ```

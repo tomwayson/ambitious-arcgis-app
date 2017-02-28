@@ -19,7 +19,7 @@ export default Ember.Route.extend({
   // the model hook is used to fetch any data based on route parameters
   model (params) {
     const itemsService = this.get('itemsService');
-    const q = params.q;
+    const q = params.q || '*';
     return itemsService.search({ q });
   }
 });
