@@ -46,4 +46,16 @@ module.exports = function(deployTarget) {
 };
 ```
 
-- `ember deploy production`
+- open ember-cli-build.js and replace `var app = new EmberApp...` with:
+
+```js
+var app = new EmberApp(defaults, {
+  fingerprint: {
+    enabled: env === 'production',
+    prepend: 'http://ambitious-arcgis-app.s3-website-us-east-1.amazonaws.com/'
+  }
+});
+```
+
+- `ember deploy production --activate`
+- visit http://ambitious-arcgis-app-index.s3-website-us-east-1.amazonaws.com/
