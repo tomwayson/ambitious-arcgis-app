@@ -14,6 +14,10 @@ https://github.com/kiwiupover/ember-cli-surge
 
 ## ember-cli-deploy & s3 (demo)
 
+http://ember-cli-deploy.com/
+
+https://github.com/Gaurav0/ember-cli-deploy-s3-pack
+
 - `ember install ember-cli-deploy`
 - `ember install ember-cli-deploy-s3-pack`
 - [I already have an s3 account, have created my buckets, have created the .env file, & .gitignored it!]
