@@ -6,3 +6,19 @@
     {{search-form q=q onSearch=(action "doSearch") class="search-form-inline"}}
   </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-responsive table-bordered table-hover table-striped">
+      <thead>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Owner</th>
+      </thead>
+      <tbody>
+        {{#each model.results as |item|}}
+          {{results-item model=item}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
