@@ -220,9 +220,11 @@ search(q) {
   <div class="col-md-12">
     <table class="table table-responsive table-bordered table-hover table-striped">
       <thead>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Owner</th>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Owner</th>
+        </tr>
       </thead>
       <tbody>
         {{#each model.results as |item|}}
