@@ -20,6 +20,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+       'arcgis-oauth-bearer': {
+          portalUrl: 'https://www.arcgis.com' //optional - defaults to https://arcgis.com
+        }
+      }
     }
   };
 
