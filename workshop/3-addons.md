@@ -37,17 +37,7 @@ torii: {
 }
 ```
 
+- remove fake implementation of itemsService:
+`ember destroy service items-service`
+
 - `ember serve` and visit `localhost:4200`
-- in app/items/route.js inject `itemsService` and replace `model()` hook:
-
-```js
-  // from ember-arcgis-portal-services
-  itemsService: Ember.inject.service('items-service'),
-
-  // the model hook is used to fetch any data based on route parameters
-  model (params) {
-    const itemsService = this.get('itemsService');
-    const q = params.q || *;
-    return itemsService.search({ q });
-  }
-```
