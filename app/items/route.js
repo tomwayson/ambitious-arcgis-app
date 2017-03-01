@@ -7,13 +7,7 @@ export default Ember.Route.extend({
   // changes to these query parameter will cause this route to
   // update the model by calling the "model()" hook again
   queryParams: {
-    q: {
-      refreshModel: true
-    },
-    itemType: {
-      refreshModel: true,
-      as: 'type'
-    }
+    q: { refreshModel: true }
   },
 
   // the model hook is used to fetch any data based on route parameters

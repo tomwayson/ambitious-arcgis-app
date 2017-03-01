@@ -68,13 +68,7 @@ export default Ember.Route.extend({
   // changes to these query parameter will cause this route to
   // update the model by calling the "model()" hook again
   queryParams: {
-    q: {
-      refreshModel: true
-    },
-    itemType: {
-      refreshModel: true,
-      as: 'type'
-    }
+    q: { refreshModel: true }
   },
 
   // the model hook is used to fetch any data based on route parameters
@@ -91,7 +85,7 @@ export default Ember.Route.extend({
 - open app/items/template.hbs and replace its contents with:
 
 ```hbs
-<h2>Your search for "{{q}}" yielded {{model.total}} {{if itemType itemType "items"}}</h2>
+<h2>Your search for "{{q}}" yielded {{model.total}} items</h2>
 ```
 
 - visit http://localhost:4200/items?q=test and http://localhost:4200/items?q=test&type=maps
