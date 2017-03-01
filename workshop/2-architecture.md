@@ -353,3 +353,5 @@ Note that all tests pass.
 assert.equal(find('table tbody tr').length, 10);
 assert.ok(find('nav.item-list-pager li').length);
 ```
+
+- verify that all tests pass

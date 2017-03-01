@@ -160,7 +160,6 @@ actions: {
 - `ember g acceptance-test smoke`
 - open tests/acceptance/smoke-test.js and replace its contents with:
 
-
 ```js
 import { test } from 'qunit';
 import moduleForAcceptance from 'ambitious-arcgis-app/tests/helpers/module-for-acceptance';
@@ -185,3 +184,4 @@ test('smoke-test', function(assert) {
 ```
 
 - `ember test -s`
+- verify that all tests pass
