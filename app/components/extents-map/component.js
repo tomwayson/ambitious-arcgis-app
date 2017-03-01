@@ -12,11 +12,14 @@ export default Ember.Component.extend({
 
     // create a map at this element's DOM node
     mapService.newMap(this.elementId, {
-      basemap: 'gray'
+      basemap: 'gray',
+      smartNavigation: false
     });
 
-    // show item extents on map
-    mapService.showItemsOnMap(this.get('items'));
+    // show item extents once map loads
+    mapService.on('load', () => {
+      mapService.showItemsOnMap(this.get('items'));
+    });
   },
 
   didUpdateAttrs () {

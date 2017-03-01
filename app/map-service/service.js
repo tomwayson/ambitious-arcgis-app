@@ -17,10 +17,19 @@ function extentFromCoordinateArray (coords) {
   }
 }
 
-export default Ember.Service.extend({
-  // create a new map object at an element and hold on to the reference
+// NOTE: extend Ember's Evented to relay map events
+export default Ember.Service.extend(Ember.Evented, {
+  // create a new map object at an element
+  // and hold on to the reference for later operations
   newMap(element, options) {
     this._map = new Map(element, options);
+    const loadHandler = this._map.on('load', () => {
+      loadHandler.remove();
+      // not a full-screen map, let user scroll down page
+      this._map.disableScrollWheelZoom();
+      // let the rest of the app know that the map is available
+      this.trigger('load');
+    });
   },
 
   // show the items on the map
@@ -29,19 +38,6 @@ export default Ember.Service.extend({
     if (!map) {
       return;
     }
-
-    if (map.loaded) {
-      this._showItemsOnMap(items);
-    } else {
-      const loadHandler = map.on('load', () => {
-        Ember.run.next(this, '_showItemsOnMap', items);
-        loadHandler.remove();
-      });
-    }
-  },
-
-  _showItemsOnMap (items) {
-    const map = this._map;
 
     // clear any existing graphics
     map.graphics.clear();
