@@ -26,7 +26,8 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
        'arcgis-oauth-bearer': {
-          portalUrl: 'https://www.arcgis.com' //optional - defaults to https://arcgis.com
+          apiKey: 'zIk2rdJoN5veTL4x',
+          portalUrl: 'https://www.arcgis.com'
         }
       }
     }
@@ -52,7 +53,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.torii.providers['arcgis-oauth-bearer'].apiKey = 'YOUR-CLIENT-ID-TIED-TO-YOUR-REDIRECT-URI'
   }
 
   return ENV;
