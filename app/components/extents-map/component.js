@@ -8,11 +8,20 @@ export default Ember.Component.extend({
   // wait until after the component is added to the DOM before creating the map
   didInsertElement () {
     this._super(...arguments);
+    const mapService = this.get('mapService');
 
     // create a map at this element's DOM node
-    this.get('mapService').newMap(this.elementId, {
+    mapService.newMap(this.elementId, {
       basemap: 'gray'
     });
+
+    // show item extents on map
+    mapService.showItemsOnMap(this.get('items'));
+  },
+
+  didUpdateAttrs () {
+    // show new item extents on map
+    this.get('mapService').showItemsOnMap(this.get('items'));
   },
 
   // destroy the map before this component is removed from the DOM
