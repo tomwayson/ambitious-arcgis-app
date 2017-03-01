@@ -44,7 +44,7 @@ torii: {
 
 Only getting 10 though, so let's add paging
 
-## Add paging components from ember-opedata-components
+## Add paging components from ember-arcgis-opendata-components
 - stop app (`cmd+C`)
 - `ember install ember-arcgis-opendata-components`
 - in app/items/route.js
