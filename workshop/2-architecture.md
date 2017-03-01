@@ -206,7 +206,7 @@ search(q) {
   // the model hook is used to fetch any data based on route parameters
   model (params) {
     const itemsService = this.get('itemsService');
-    const q = params.q || *;
+    const q = params.q || '*';
     return itemsService.search({ q });
   }
 ```
@@ -259,7 +259,7 @@ search(q) {
 tagName: 'tr'
 ```
 
-- open app/items/template.hbs and replace the tr and its contents with:
+- open app/items/template.hbs and replace the `tr` and its contents with:
 
 ```hbs
 {{results-item model=item}}
@@ -267,7 +267,41 @@ tagName: 'tr'
 
 App should look/work the same.
 
-### Bonus: Component tests test/integration/components/search-form/component-test.js
+### Component tests
+
+- 'ember t -s'
+- note that 2 tests fail (these are tests that ember-cli generated for you when it generated your components)
+- open test/integration/components/search-form/component-test.js and replace its contents with:
+
+```js
+import Ember from 'ember';
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+
+moduleForComponent('results-item', 'Integration | Component | results item', {
+  integration: true
+});
+
+test('it renders', function(assert) {
+
+  const model = Ember.Object.create({
+    title: 'This is the title',
+    type: 'Web Map',
+    owner: 'username'
+  });
+  this.set('model', model);
+
+  this.render(hbs`{{results-item model=model}}`);
+  assert.equal(this.$('tr td').length, 3, 'renders a tr with 3 tds');
+  assert.equal(this.$('tr td:first').text(), 'This is the title', 'renders the title');
+  assert.equal(this.$('tr td:nth-child(2)').text(), 'Web Map', 'renders the type');
+  assert.equal(this.$('tr td:nth-child(3)').text(), 'username', 'renders the owner');
+});
+```
+
+Note that only one test fails.
+
+- open test/integration/components/search-form/component-test.js and replace its contents with:
 
 ```js
 import { moduleForComponent, test } from 'ember-qunit';
@@ -309,4 +343,13 @@ test('can set size', function (assert) {
 });
 ```
 
-- `ember t`
+Note that all tests pass.
+
+### Extend acceptance test
+
+- add the following two assertions to our acceptance test:
+
+```js
+assert.equal(find('table tbody tr').length, 10);
+assert.ok(find('nav.item-list-pager li').length);
+```
