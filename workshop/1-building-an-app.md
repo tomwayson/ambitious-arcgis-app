@@ -26,7 +26,7 @@ body {
 - set `"usePods": true` in .ember-cli
 - move app/templates/application.hbs to app/application/template.hbs
 - delete the root level controllers, routes, and templates directories
-- open app/templates/application.hbs to app/application/template.hbs replace its contents with:
+- open app/application/template.hbs replace its contents with:
 
 ```hbs
 <div class="container">
@@ -154,3 +154,34 @@ actions: {
 ```
 
 - click on the home link and enter search terms
+
+### Add an acceptance test
+
+- `ember g acceptance-test smoke`
+- open tests/acceptance/smoke-test.js and replace its contents with:
+
+```js
+import { test } from 'qunit';
+import moduleForAcceptance from 'ambitious-arcgis-app/tests/helpers/module-for-acceptance';
+
+moduleForAcceptance('Acceptance | smoke test');
+
+test('smoke-test', function(assert) {
+  visit('/');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/');
+  });
+
+  fillIn('form .input-group input', 'water');
+  click('form .input-group button');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/items?q=water');
+    assert.equal(find('table tbody tr').length, 10);
+  });
+});
+```
+
+- `ember test -s`
+- verify that all tests pass
