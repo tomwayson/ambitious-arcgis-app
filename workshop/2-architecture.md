@@ -101,7 +101,7 @@ actions: {
 ```hbs
 <div class="row">
   <div class="col-md-9">
-    <h2>Your search for "{{q}}" yielded {{model.total}} {{if itemType itemType "items"}}</h2>
+    <h2>Your search for "{{q}}" yielded {{model.total}} items</h2>
   </div>
   <div class="col-md-3">
     {{search-form q=q onSearch=(action "doSearch") class="search-form-inline"}}
