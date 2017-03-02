@@ -1,9 +1,14 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var env = EmberApp.env() || 'development';
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    fingerprint: {
+      enabled: env === 'production',
+      prepend: 'http://ambitious-arcgis-app.s3-website-us-east-1.amazonaws.com/'
+    },
     amd : {
       // only need basic mapping capabilities, so use compact
       loader: 'https://js.arcgis.com/3.19compact/',
