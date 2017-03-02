@@ -1,6 +1,28 @@
 # Building an Application
 
+
+
+- generators
+- application route/template
+- nested routes and {{outlet}}
+- route lifecycle hooks: model
+- actions
+- ember inspector
+- testing
+
+
+
 ## Scaffold the application
+
+### Prerequisistes
+
+- node and npm - already installed
+- ember-cli - already installed (if not, `npm install -g ember-cli`)
+- Git - already installed on mac, windows users can download https://git-scm.com/download/win
+- bower - `npm install -g bower`
+- phantomjs - `npm install -g phantomjs-prebuilt`
+
+### Ember new
 
 Open a terminal to the root folder where you keep your projects and enter:
 ```shell
@@ -13,7 +35,13 @@ cd ambitious-arcgis-app
 - set `"usePods": true` in .ember-cli
 - move app/templates/application.hbs to app/application/template.hbs
 - delete the root level controllers, routes, and templates directories
-- `ember serve`
+- in your terminal, enter
+```shell
+ember serve
+```
+
+#### Notes:
+- about pods/the resolver
 
 ### Add some markup and CSS
 
@@ -55,16 +83,9 @@ body {
 </div> <!-- /container -->
 ```
 
-In your terminal, enter
-```shell
-ember s
-```
-
 Open a browser to http://localhost:4200/
 
 ## Scaffold some routes
-
-About Routes / Controllers / Templates
 
 ### Add items route
 - `ember generate route items`
