@@ -72,8 +72,8 @@ body {
 
 #### Notes:
 - application route/template
-- handlebars/templating/data binding
-- ember object, get, set, init, super, extend, create
+- handlebars/templating
+- nested routes and {{outlet}}
 - compiled css, js
 
 ## Scaffold some routes
@@ -113,8 +113,8 @@ export default Ember.Route.extend({
 
 #### Notes:
 - generators
-- application route/template
-- nested routes and {{outlet}}
+- data binding
+- ember object, get, set, extend
 - route lifecycle hooks: model
 
 ### Add index route
@@ -183,6 +183,7 @@ actions: {
 - click on the home link and enter search terms
 
 #### Notes:
+- helpers - link-to & input
 - actions
 - ember inspector
 
@@ -209,7 +210,6 @@ test('smoke-test', function(assert) {
 
   andThen(function () {
     assert.equal(currentURL(), '/items?q=water');
-    assert.equal(find('table tbody tr').length, 10);
   });
 });
 ```
