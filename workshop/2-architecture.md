@@ -3,6 +3,7 @@
 - `ember serve` and visit `localhost:4200`
 
 ## Refactor search form into a component
+
 - `ember generate component search-form`
 - app/components/search-form/template.hbs
 
@@ -267,7 +268,7 @@ tagName: 'tr'
 
 App should look/work the same.
 
-### Component tests
+## Component tests
 
 - 'ember t -s'
 - note that 2 tests fail (these are tests that ember-cli generated for you when it generated your components)
@@ -345,7 +346,7 @@ test('can set size', function (assert) {
 
 Note that all tests pass.
 
-### Extend acceptance test
+## Extend acceptance test
 
 - add the following two assertions to our acceptance test:
 
