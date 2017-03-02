@@ -10,7 +10,8 @@ export default Ember.Controller.extend({
   actions: {
     doSearch (q) {
       this.transitionToRoute({
-        queryParams: { q }
+        // for a new query string, sart on first page
+        queryParams: { q , start: 1 }
       });
     }
   }

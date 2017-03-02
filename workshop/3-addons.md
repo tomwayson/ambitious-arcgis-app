@@ -71,6 +71,15 @@ start: 1,
 num: 10,
 ```
 
+- then below in `transitionToRoute()` update the query as follows:
+
+```js
+// for a new query string, sart on first page
+queryParams: { q , start: 1 }
+```
+
+- do the same in app/index/controller.js
+
 - in app/items/template.hbs add this below the table:
 
 ```hbs
