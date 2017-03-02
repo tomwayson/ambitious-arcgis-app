@@ -8,7 +8,16 @@ ember new ambitious-arcgis-app
 cd ambitious-arcgis-app
 ```
 
-Open IDE of choice to ambitious-arcgis-app folder
+### Use Pods
+
+- set `"usePods": true` in .ember-cli
+- move app/templates/application.hbs to app/application/template.hbs
+- delete the root level controllers, routes, and templates directories
+- `ember serve`
+
+### Add some markup and CSS
+
+- open IDE of choice to ambitious-arcgis-app folder
 - open app/styles/app.css and add
 
 ```css
@@ -23,9 +32,7 @@ body {
   margin-bottom: 20px;
 }
 ```
-- set `"usePods": true` in .ember-cli
-- move app/templates/application.hbs to app/application/template.hbs
-- delete the root level controllers, routes, and templates directories
+
 - open app/application/template.hbs replace its contents with:
 
 ```hbs
@@ -155,7 +162,7 @@ actions: {
 
 - click on the home link and enter search terms
 
-### Add an acceptance test
+## Add an acceptance test
 
 - `ember g acceptance-test smoke`
 - open tests/acceptance/smoke-test.js and replace its contents with:
