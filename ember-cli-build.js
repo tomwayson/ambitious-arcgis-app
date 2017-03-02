@@ -8,6 +8,16 @@ module.exports = function(defaults) {
     fingerprint: {
       enabled: env === 'production',
       prepend: 'http://ambitious-arcgis-app.s3-website-us-east-1.amazonaws.com/'
+    },
+    amd : {
+      // only need basic mapping capabilities, so use compact
+      loader: 'https://js.arcgis.com/3.19compact/',
+      // user defined AMD packages to search for in application
+      packages: [
+        'esri','dojo','dojox','dijit',
+        'put-selector','xstyle','dgrid'
+      ],
+      configPath: 'config/dojo-config.js'
     }
   });
 

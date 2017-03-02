@@ -21,8 +21,10 @@ cd ambitious-arcgis-app
 - open app/styles/app.css and add
 
 ```css
+/* bootstrap styles */
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 
+/* app styles */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
