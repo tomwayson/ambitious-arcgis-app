@@ -1,5 +1,10 @@
+/* bootstrap styles */
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 
+/* esri styles */
+@import url('https://js.arcgis.com/3.19/esri/css/esri.css');
+
+/* app styles */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -25,4 +30,10 @@ body {
 /* items */
 .search-form-inline {
   margin-top: 20px;
+}
+
+/* map */
+.elements-map {
+  height: 300px;
+  margin-bottom: 20px;
 }
