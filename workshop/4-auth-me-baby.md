@@ -187,7 +187,7 @@ _initSession () {
     .then(() => {
       Ember.debug('User has been automatically logged in... ');
     })
-    .catch((err) => {
+    .catch((/*err*/) => {
       // we want to catch this, otherwise Ember will redirect to an error route!
       Ember.debug('No cookie was found, user is anonymous... ');
     });
