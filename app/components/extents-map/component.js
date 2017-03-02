@@ -3,7 +3,7 @@ import config from '../../config/environment';
 import coordsToExtent from '../../utils/map/coords-to-extent';
 
 export default Ember.Component.extend({
-  classNames: ['elements-map'],
+  classNames: ['extents-map'],
 
   mapService: Ember.inject.service('map-service'),
 

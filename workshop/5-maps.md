@@ -39,7 +39,7 @@ var app = new EmberApp(defaults, {
 
  ```css
  /* map */
- .elements-map {
+ .extents-map {
    height: 300px;
    margin-bottom: 20px;
  }
@@ -47,7 +47,8 @@ var app = new EmberApp(defaults, {
 
 - `ember serve`
 - `ember generate service map-service`
-- `ember generate component elements-map`
+- `ember generate component extents-map`
+- `rm app/components/extents-map/template.hbs`
 - replace contents of app/map-service/service.js with
 
 ```js
@@ -77,7 +78,7 @@ export default Ember.Service.extend({
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['elements-map'],
+  classNames: ['extents-map'],
 
   mapService: Ember.inject.service('map-service'),
 
