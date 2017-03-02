@@ -1,0 +1,64 @@
+ok 1 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/mixins/service-mixin.js: should pass jshint
+ok 2 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/geocode-service.js: should pass jshint
+ok 3 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/groups-service.js: should pass jshint
+ok 4 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/items-service.js: should pass jshint
+ok 5 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/oauth-service.js: should pass jshint
+ok 6 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/portal-service.js: should pass jshint
+ok 7 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/sharing-service.js: should pass jshint
+ok 8 PhantomJS 2.1 - JSHint | modules/ember-arcgis-portal-services/services/user-service.js: should pass jshint
+ok 9 PhantomJS 2.1 - JSHint | modules/torii-provider-arcgis/mixins/gatekeeper.js: should pass jshint
+ok 10 PhantomJS 2.1 - Acceptance | smoke test: smoke-test
+    ---
+        Log: |
+            { type: 'warn',
+              text: '\'DEPRECATION: Usage of `portalHostName` is deprecated, use `portalHostname` instead. [deprecation id: torii-provider-arcgis::portalHostName]\\n    http://localhost:7357/assets/vendor.js:16185:15\\n    raiseOnDeprecation@http://localhost:7357/assets/vendor.js:16104:17\\n    http://localhost:7357/assets/vendor.js:16185:15\\n    invoke@http://localhost:7357/assets/vendor.js:16201:21\\n    deprecate@http://localhost:7357/assets/vendor.js:16169:37\\n    deprecate@http://localhost:7357/assets/vendor.js:27928:42\\n    get@http://localhost:7357/assets/vendor.js:40575:30\\n    get@http://localhost:7357/assets/vendor.js:27568:32\\n    get@http://localhost:7357/assets/vendor.js:32479:22\\n    _getPath@http://localhost:7357/assets/vendor.js:32500:16\\n    get@http://localhost:7357/assets/vendor.js:32475:22\\n    get@http://localhost:7357/assets/vendor.js:45199:29\\n    http://localhost:7357/assets/vendor.js:73349:35\\n    get@http://localhost:7357/assets/vendor.js:27568:32\\n    get@http://localhost:7357/assets/vendor.js:32479:22\\n    get@http://localhost:7357/assets/vendor.js:45199:29\\n    http://localhost:7357/assets/vendor.js:73340:29\\n    get@http://localhost:7357/assets/vendor.js:27568:32\\n    get@http://localhost:7357/assets/vendor.js:32479:22\\n    get@http://localhost:7357/assets/vendor.js:45199:29\\n    search@http://localhost:7357/assets/vendor.js:73620:35\\n    model@http://localhost:7357/assets/ambitious-arcgis-app.js:662:33\\n    deserialize@http://localhost:7357/assets/vendor.js:37248:24\\n    applyHook@http://localhost:7357/assets/vendor.js:66586:32\\n    runSharedModelHook@http://localhost:7357/assets/vendor.js:67203:27\\n    getModel@http://localhost:7357/assets/vendor.js:67402:35\\n    http://localhost:7357/assets/vendor.js:66440:20\\n    tryCatch@http://localhost:7357/assets/vendor.js:69066:22\\n    invokeCallback@http://localhost:7357/assets/vendor.js:69081:23\\n    publish@http://localhost:7357/assets/vendor.js:69049:23\\n    http://localhost:7357/assets/vendor.js:48955:24\\n    invoke@http://localhost:7357/assets/vendor.js:10880:18\\n    flush@http://localhost:7357/assets/vendor.js:10948:15\\n    flush@http://localhost:7357/assets/vendor.js:11072:20\\n    end@http://localhost:7357/assets/vendor.js:11142:28\\n    run@http://localhost:7357/assets/vendor.js:11265:19\\n    run@http://localhost:7357/assets/vendor.js:32787:32\\n    handler@http://localhost:7357/assets/vendor.js:22158:22\\n    http://localhost:7357/assets/vendor.js:52353:34\\n    dispatch@http://localhost:7357/assets/vendor.js:5523:32\\n    handle@http://localhost:7357/assets/vendor.js:5331:33\\n    dispatchEvent@[native code]\\n    fireEvent@http://localhost:7357/assets/vendor.js:48712:26\\n    click@http://localhost:7357/assets/vendor.js:49034:34\\n    http://localhost:7357/assets/vendor.js:48937:24\\n    isolate@http://localhost:7357/assets/vendor.js:50068:30\\n    http://localhost:7357/assets/vendor.js:50024:23\\n    tryCatch@http://localhost:7357/assets/vendor.js:69066:22\\n    invokeCallback@http://localhost:7357/assets/vendor.js:69081:23\\n    publish@http://localhost:7357/assets/vendor.js:69049:23\\n    http://localhost:7357/assets/vendor.js:48955:24\\n    invoke@http://localhost:7357/assets/vendor.js:10880:18\\n    flush@http://localhost:7357/assets/vendor.js:10948:15\\n    flush@http://localhost:7357/assets/vendor.js:11072:20\\n    end@http://localhost:7357/assets/vendor.js:11142:28\\n    run@http://localhost:7357/assets/vendor.js:11265:19\\n    run@http://localhost:7357/assets/vendor.js:32787:32\\n    http://localhost:7357/assets/vendor.js:49547:24\'\n' }
+    ...
+ok 11 PhantomJS 2.1 - JSHint | acceptance/smoke-test.js: should pass jshint
+ok 12 PhantomJS 2.1 - JSHint | app.js: should pass jshint
+ok 13 PhantomJS 2.1 - JSHint | application/route.js: should pass jshint
+ok 14 PhantomJS 2.1 - JSHint | components/extents-map/component.js: should pass jshint
+ok 15 PhantomJS 2.1 - JSHint | components/results-item/component.js: should pass jshint
+ok 16 PhantomJS 2.1 - JSHint | components/search-form/component.js: should pass jshint
+ok 17 PhantomJS 2.1 - JSHint | helpers/destroy-app.js: should pass jshint
+ok 18 PhantomJS 2.1 - JSHint | helpers/module-for-acceptance.js: should pass jshint
+ok 19 PhantomJS 2.1 - JSHint | helpers/resolver.js: should pass jshint
+ok 20 PhantomJS 2.1 - JSHint | helpers/start-app.js: should pass jshint
+ok 21 PhantomJS 2.1 - JSHint | index/controller.js: should pass jshint
+ok 22 PhantomJS 2.1 - JSHint | index/route.js: should pass jshint
+ok 23 PhantomJS 2.1 - Integration | Component | extents map: it renders
+ok 24 PhantomJS 2.1 - JSHint | integration/components/extents-map/component-test.js: should pass jshint
+ok 25 PhantomJS 2.1 - Integration | Component | results item: it renders
+ok 26 PhantomJS 2.1 - JSHint | integration/components/results-item/component-test.js: should pass jshint
+ok 27 PhantomJS 2.1 - Integration | Component | search form: it renders
+ok 28 PhantomJS 2.1 - Integration | Component | search form: can set size
+ok 29 PhantomJS 2.1 - JSHint | integration/components/search-form/component-test.js: should pass jshint
+ok 30 PhantomJS 2.1 - JSHint | items/controller.js: should pass jshint
+ok 31 PhantomJS 2.1 - JSHint | items/route.js: should pass jshint
+ok 32 PhantomJS 2.1 - JSHint | map-service/service.js: should pass jshint
+ok 33 PhantomJS 2.1 - JSHint | resolver.js: should pass jshint
+ok 34 PhantomJS 2.1 - JSHint | router.js: should pass jshint
+ok 35 PhantomJS 2.1 - JSHint | test-helper.js: should pass jshint
+ok 36 PhantomJS 2.1 - Unit | Route | application: it exists
+ok 37 PhantomJS 2.1 - JSHint | unit/application/route-test.js: should pass jshint
+ok 38 PhantomJS 2.1 - Unit | Controller | index: it exists
+ok 39 PhantomJS 2.1 - JSHint | unit/index/controller-test.js: should pass jshint
+ok 40 PhantomJS 2.1 - Unit | Route | index: it exists
+ok 41 PhantomJS 2.1 - JSHint | unit/index/route-test.js: should pass jshint
+ok 42 PhantomJS 2.1 - Unit | Controller | items: it exists
+ok 43 PhantomJS 2.1 - JSHint | unit/items/controller-test.js: should pass jshint
+ok 44 PhantomJS 2.1 - Unit | Route | items: it exists
+ok 45 PhantomJS 2.1 - JSHint | unit/items/route-test.js: should pass jshint
+ok 46 PhantomJS 2.1 - Unit | Service | map service: it exists
+ok 47 PhantomJS 2.1 - JSHint | unit/map-service/service-test.js: should pass jshint
+ok 48 PhantomJS 2.1 - Unit | Utility | map/coords to extent: it works
+ok 49 PhantomJS 2.1 - Unit | Utility | map/coords to extent: it handles invalid coords
+ok 50 PhantomJS 2.1 - JSHint | unit/utils/map/coords-to-extent-test.js: should pass jshint
+ok 51 PhantomJS 2.1 - JSHint | utils/map/coords-to-extent.js: should pass jshint
+
+1..51
+# tests 51
+# pass  51
+# skip  0
+# fail  0
+
+# ok

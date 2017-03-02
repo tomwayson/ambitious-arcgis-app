@@ -1,20 +1,8 @@
 # Building an Application
 
-
-
-- generators
-- application route/template
-- nested routes and {{outlet}}
-- route lifecycle hooks: model
-- actions
-- ember inspector
-- testing
-
-
-
 ## Scaffold the application
 
-### Prerequisistes
+### Prerequisites
 
 - node and npm - already installed
 - ember-cli - already installed (if not, `npm install -g ember-cli`)
@@ -24,7 +12,7 @@
 
 ### Ember new
 
-Open a terminal to the root folder where you keep your projects and enter:
+- open a terminal to the root folder where you keep your projects and enter:
 ```shell
 ember new ambitious-arcgis-app
 cd ambitious-arcgis-app
@@ -32,6 +20,7 @@ cd ambitious-arcgis-app
 
 ### Use Pods
 
+- open IDE of choice to ambitious-arcgis-app folder
 - set `"usePods": true` in .ember-cli
 - move app/templates/application.hbs to app/application/template.hbs
 - delete the root level controllers, routes, and templates directories
@@ -39,20 +28,18 @@ cd ambitious-arcgis-app
 ```shell
 ember serve
 ```
+- open a browser to http://localhost:4200/
 
 #### Notes:
 - about pods/the resolver
 
 ### Add some markup and CSS
 
-- open IDE of choice to ambitious-arcgis-app folder
 - open app/styles/app.css and add
 
 ```css
-/* bootstrap styles */
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 
-/* app styles */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -83,7 +70,11 @@ body {
 </div> <!-- /container -->
 ```
 
-Open a browser to http://localhost:4200/
+#### Notes:
+- application route/template
+- handlebars/templating/data binding
+- ember object, get, set, init, super, extend, create
+- compiled css, js
 
 ## Scaffold some routes
 
@@ -119,6 +110,12 @@ export default Ember.Route.extend({
 ```
 
 - visit http://localhost:4200/items?q=test and http://localhost:4200/items?q=test&type=maps
+
+#### Notes:
+- generators
+- application route/template
+- nested routes and {{outlet}}
+- route lifecycle hooks: model
 
 ### Add index route
 - `ember generate route index`
@@ -185,6 +182,10 @@ actions: {
 
 - click on the home link and enter search terms
 
+#### Notes:
+- actions
+- ember inspector
+
 ## Add an acceptance test
 
 - `ember g acceptance-test smoke`
@@ -215,3 +216,6 @@ test('smoke-test', function(assert) {
 
 - `ember test -s`
 - verify that all tests pass
+
+#### Notes:
+- testing
