@@ -2,7 +2,17 @@
 
 ## Scaffold the application
 
-Open a terminal to the root folder where you keep your projects and enter:
+### Prerequisites
+
+- node and npm - already installed
+- ember-cli - already installed (if not, `npm install -g ember-cli`)
+- Git - already installed on mac, windows users can download https://git-scm.com/download/win
+- bower - `npm install -g bower`
+- phantomjs - `npm install -g phantomjs-prebuilt`
+
+### Ember new
+
+- open a terminal to the root folder where you keep your projects and enter:
 ```shell
 ember new ambitious-arcgis-app
 cd ambitious-arcgis-app
@@ -10,21 +20,27 @@ cd ambitious-arcgis-app
 
 ### Use Pods
 
+- open IDE of choice to ambitious-arcgis-app folder
 - set `"usePods": true` in .ember-cli
 - move app/templates/application.hbs to app/application/template.hbs
 - delete the root level controllers, routes, and templates directories
-- `ember serve`
+- in your terminal, enter
+```shell
+ember serve
+```
+- open a browser to http://localhost:4200/
+
+#### Notes:
+- about pods/the resolver
 
 ### Add some markup and CSS
 
-- open IDE of choice to ambitious-arcgis-app folder
 - open app/styles/app.css and add
 
 ```css
 /* bootstrap styles */
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 
-/* app styles */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -55,16 +71,13 @@ body {
 </div> <!-- /container -->
 ```
 
-In your terminal, enter
-```shell
-ember s
-```
-
-Open a browser to http://localhost:4200/
+#### Notes:
+- application route/template
+- handlebars/templating
+- nested routes and {{outlet}}
+- compiled css, js
 
 ## Scaffold some routes
-
-About Routes / Controllers / Templates
 
 ### Add items route
 - `ember generate route items`
@@ -98,6 +111,12 @@ export default Ember.Route.extend({
 ```
 
 - visit http://localhost:4200/items?q=test and http://localhost:4200/items?q=test&type=maps
+
+#### Notes:
+- generators
+- data binding
+- ember object, get, set, extend
+- route lifecycle hooks: model
 
 ### Add index route
 - `ember generate route index`
@@ -164,6 +183,11 @@ actions: {
 
 - click on the home link and enter search terms
 
+#### Notes:
+- helpers - link-to & input
+- actions
+- ember inspector
+
 ## Add an acceptance test
 
 - `ember g acceptance-test smoke`
@@ -187,10 +211,12 @@ test('smoke-test', function(assert) {
 
   andThen(function () {
     assert.equal(currentURL(), '/items?q=water');
-    assert.equal(find('table tbody tr').length, 10);
   });
 });
 ```
 
 - `ember test -s`
 - verify that all tests pass
+
+#### Notes:
+- testing
