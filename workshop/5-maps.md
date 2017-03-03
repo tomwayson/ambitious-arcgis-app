@@ -254,4 +254,4 @@ showItemsOnMap () {
 },
 ```
 
-- finally, in app/components/extents-map/template.hbs update the compnent tag to `{{extents-map items=model.results}}`
+- finally, in app/items/template.hbs update the `extents-map` invocation to `{{extents-map items=model.results}}`
