@@ -362,11 +362,10 @@ Note that all tests pass.
 
 ## Extend acceptance test
 
-- add the following two assertions to our acceptance test:
+- add the following assertion to our acceptance test:
 
 ```js
 assert.equal(find('table tbody tr').length, 10);
-assert.ok(find('nav.item-list-pager li').length);
 ```
 
 - verify that all tests pass
