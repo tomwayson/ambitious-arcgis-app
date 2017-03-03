@@ -20,8 +20,6 @@
 </form>
 ```
 
-NOTE: `searchCopy` and `sizeClass`
-
 - app/components/search-form/component.js
 
 ```js
@@ -73,7 +71,12 @@ doSearch (q) {
 
 App should look/work the same.
 
-## Add search form to items page
+### Notes:
+- classNames (customizing the element)
+- searchCopy (DDAU)
+- sizeClass (data binding)
+
+## Add search component to items page
 - `ember generate controller items`
 - in app/items/controller.js, add
 
@@ -212,6 +215,10 @@ search(q) {
   }
 ```
 
+### Notes:
+- service & injection
+- model hook
+
 ## Display the results
 
 - open app/items/template.hbs and add:
@@ -243,6 +250,10 @@ search(q) {
 
 - observe that we now see search results (that are always the same regardless of what you search for)
 
+### Notes:
+- Data binding to a collection
+- `each` helper
+
 ## Refactor to use a results-item component
 
 - `ember g component results-item`
@@ -268,11 +279,14 @@ tagName: 'tr'
 
 App should look/work the same.
 
+### Notes:
+- tagName (customizing the element)
+
 ## Component tests
 
-- 'ember t -s'
+- `ember t -s`
 - note that 2 tests fail (these are tests that ember-cli generated for you when it generated your components)
-- open test/integration/components/search-form/component-test.js and replace its contents with:
+- open test/integration/components/results-item/component-test.js and replace its contents with:
 
 ```js
 import Ember from 'ember';
@@ -356,3 +370,7 @@ assert.ok(find('nav.item-list-pager li').length);
 ```
 
 - verify that all tests pass
+
+### Notes:
+- component integration tests
+- more acceptance tests
