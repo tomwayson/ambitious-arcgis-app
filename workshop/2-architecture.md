@@ -284,9 +284,9 @@ App should look/work the same.
 
 ## Component tests
 
-- 'ember t -s'
+- `ember t -s`
 - note that 2 tests fail (these are tests that ember-cli generated for you when it generated your components)
-- open test/integration/components/search-form/component-test.js and replace its contents with:
+- open test/integration/components/results-item/component-test.js and replace its contents with:
 
 ```js
 import Ember from 'ember';
