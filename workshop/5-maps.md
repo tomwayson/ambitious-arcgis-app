@@ -95,7 +95,6 @@ export default Ember.Component.extend({
     this._super(...arguments);
     const mapService = this.get('mapService');
     mapService.destroyMap();
-    mapService.off('load', this, this.showItemsOnMap);
   }
 });
 ```
@@ -106,54 +105,11 @@ export default Ember.Component.extend({
 
 ## Showing item extents on the map
 
-- `ember generate util map/coords-to-extent`
+### Update the map service
 
-- replace app/utils/map/coords-to-extent.js content with:
+- in app/map-service/service.js add:
 
-```js
-export default function mapCoordsToExtent (coords) {
-  if (coords && coords.length === 2) {
-    return {
-      xmin: coords[0][0],
-      ymin: coords[0][1],
-      xmax: coords[1][0],
-      ymax: coords[1][1],
-      spatialReference:{
-        wkid:4326
-      }
-    };
-  }
-}
 ```
-
-- in tests/unit/utils/map/coords-to-extent.js replace `test` with:
-
-```js
-test('it works', function(assert) {
-  const coords = [[-53.2316, -79.8433], [180, 79.8433]];
-  let result = mapCoordsToExtent(coords);
-  assert.deepEqual(result, {
-    xmin: -53.2316,
-    ymin: -79.8433,
-    xmax: 180,
-    ymax: 79.8433,
-    spatialReference:{
-      wkid:4326
-    }
-  });
-});
-
-test('it handles invalid coords', function(assert) {
-  let result = mapCoordsToExtent([]);
-  assert.equal(result, undefined);
-});
-```
-
-- run tests w/ `ember t`
-
-- in app/map-service/servie.js add:
-
-```js
 import Graphic from 'esri/graphic';
 
 // NOTE: using Evented mixin to relay map events
@@ -194,6 +150,56 @@ refreshGraphics (jsonGraphics) {
 },
 ```
 
+### Add a utility function to transform extent
+
+- `ember generate util map/coords-to-extent`
+
+- replace app/utils/map/coords-to-extent.js content with:
+
+```js
+// expect [[-53.2316, -79.8433], [180, 79.8433]] or []
+export default function mapCoordsToExtent (coords) {
+  if (coords && coords.length === 2) {
+    return {
+      xmin: coords[0][0],
+      ymin: coords[0][1],
+      xmax: coords[1][0],
+      ymax: coords[1][1],
+      spatialReference:{
+        wkid:4326
+      }
+    };
+  }
+}
+```
+
+- in tests/unit/utils/map/coords-to-extent.js replace `test` with:
+
+```js
+test('it works', function(assert) {
+  const coords = [[-53.2316, -79.8433], [180, 79.8433]];
+  let result = mapCoordsToExtent(coords);
+  assert.deepEqual(result, {
+    xmin: -53.2316,
+    ymin: -79.8433,
+    xmax: 180,
+    ymax: 79.8433,
+    spatialReference:{
+      wkid:4326
+    }
+  });
+});
+
+test('it handles invalid coords', function(assert) {
+  let result = mapCoordsToExtent([]);
+  assert.equal(result, undefined);
+});
+```
+
+- run tests w/ `ember t`
+
+### Add configuration parameters
+
 - in config/environment.js add this to `APP`:
 
 ```js
@@ -222,6 +228,8 @@ map: {
 }
 ```
 
+### Update map component
+
 - in app/components/extents-map/component.js add these `import` statements
 
 ```js
@@ -229,21 +237,9 @@ import config from '../../config/environment';
 import coordsToExtent from '../../utils/map/coords-to-extent';
 ```
 
-- then add this to the end of `didInsertElement()`:
+- then add this method:
 
 ```js
-// show item extents once map loads
-mapService.on('load', this, this.showItemsOnMap);
-```
-
-- then add these methods:
-
-```js
-// whenever items change, update the map
-didUpdateAttrs () {
-  this.showItemsOnMap();
-},
-
 // show new item extents on map
 showItemsOnMap () {
   const { symbol, infoTemplate } = config.APP.map.itemExtents;
@@ -255,4 +251,28 @@ showItemsOnMap () {
 },
 ```
 
-- finally, in app/items/template.hbs update the `extents-map` invocation to `{{extents-map items=model.results}}`
+- then update contents of `didInsertElement()` to:
+
+```js
+this._super(...arguments);
+const mapService = this.get('mapService');
+// create a map at this element's DOM node
+mapService.newMap(this.elementId, config.APP.map.options);
+// show item extents once map loads
+mapService.on('load', this, this.showItemsOnMap);
+```
+
+- in app/items/template.hbs update the `extents-map` invocation to `{{extents-map items=model.results}}`
+
+- visit the items route and see the extents on the map
+- but they don't update when you change the query, or page, so
+- back in app/components/extents-map/component.js add this method:
+
+```js
+// whenever items change, update the map
+didUpdateAttrs () {
+  this.showItemsOnMap();
+},
+```
+
+- see the extents on the map change when you change query/page
