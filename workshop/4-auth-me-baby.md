@@ -28,7 +28,7 @@ Now, move to the Authentication tab, and scroll to the bottom. Add `http://local
 
 ## Adding Sign-In to Our app
 
-First, lets add the markup to the template
+First, let's add the markup to `/app/application/template.hbs`
 
 ```html
 <ul class="nav navbar-nav navbar-right">
@@ -42,7 +42,7 @@ First, lets add the markup to the template
 
 Now we need to add the `signin` and `signout` actions to the application route.
 
-Lets generate the route.
+Let's generate the route.
 
 ```
 ember g route Application
@@ -66,7 +66,7 @@ actions: {
 ...
 ```
 
-Now lets run ember and see how things work. `ember s`, open `http://localhost:4200` in your browser, and open dev tools.
+Now let's run ember and see how things work. `ember s`, open `http://localhost:4200` in your browser, and open dev tools.
 
 You should see your "Sign In" link in the nav bar. Clicking on it, should add messages to the console.
 
@@ -132,7 +132,7 @@ actions: {
 
 At this point we have basic authentication working and our session has all our ArcGIS Online information and we can call the API etc.
 
-But... the user experience is weak. So lets show the current user in the header and move Sign Out into a dropdown.
+But... the user experience is weak. So let's show the current user in the header and move Sign Out into a dropdown.
 
 ### Add Bootstrap JS
 To use a dropdown in bootstrap we need the bootstrap javascript. To keep things simple we will pull this from a CDN, but for a production app, you would pull it into the app, and bundle in just the pieces you need.
@@ -159,7 +159,7 @@ Now, open up `/app/application/template.hbs` and replace the code between `{{#if
 The `session` service is injected into all templates, so we can directly use that in the template `{{session.currentUser.fullName}}` shows... yep, the user's full name.
 
 ## Persisting Session
-At this point you've likelt gotten sick of having to sign in every time the app refreshs, so lets fix that.
+At this point you've likely gotten sick of having to sign in every time the app refreshes, so let's fix that.
 
 By default, `torii` stores the credentials in `localStorage`, let's look at that. In devtools, on the "Application" tab, click on Local Storage on the left, and click on `http://localhost:4200`. If you are signed in, you will see a key called `torii-provider-arcgis`, with a json object as the value.
 
@@ -170,7 +170,7 @@ The first hook we have in the application life-cycle is the `beforeModel()` hook
 ```
 beforeModel () {
   Ember.debug('ApplicationRoute:beforeModel');
-}
+},
 ```
 
 Press save, and the app will re-load and we will see that message in the console.
@@ -195,7 +195,7 @@ _initSession () {
 ```
 
 #### Before Model and Promise Rejection
-The call to `session.fetch()` returns a promise, which makes sense because it's an asycn call. The promise will resolve with the authorization payload, or reject because the user is not signed in. Normally, we can force Ember to redirect to an `error` route by rejecting a promise in the `beforeModel` hook. But in this case, we don't want to do that - thus we have a `.catch()`.
+The call to `session.fetch()` returns a promise, which makes sense because it's an async call. The promise will resolve with the authorization payload, or reject because the user is not signed in. Normally, we can force Ember to redirect to an `error` route by rejecting a promise in the `beforeModel` hook. But in this case, we don't want to do that - thus we have a `.catch()`.
 
 # Wrap Up
 At this point you should have an app that allows a user to sign in with ArcGIS.com credentials, shows their name in the UI, and allows them to sign out. If the close the browser or refresh the page while signed in, the app will load their saved token information from localStorage and automatically sign them in.
