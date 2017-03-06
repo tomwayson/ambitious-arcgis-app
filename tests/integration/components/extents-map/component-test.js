@@ -1,4 +1,5 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { moduleForComponent } from 'ember-qunit';
+import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('extents-map', 'Integration | Component | extents map', {
@@ -6,20 +7,14 @@ moduleForComponent('extents-map', 'Integration | Component | extents map', {
 });
 
 test('it renders', function(assert) {
+  const mapService = this.container.lookup('service:map-service');
+  const stub = this.stub(mapService, 'newMap');
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{extents-map}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#extents-map}}
-      template block text
-    {{/extents-map}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  // assert.equal(this.$().text().trim(), '');
+  assert.ok(stub.calledOnce, 'newMap was called once');
 });

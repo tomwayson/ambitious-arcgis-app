@@ -103,6 +103,38 @@ export default Ember.Component.extend({
 
 - go to the items route, you should see a map
 
+### Bonus - map component test
+
+Goal: stub the map service so we don't create a map when testing
+
+- `ember install ember-sinon-qunit`
+- run `ember test - s` and filter for "integration"
+- open network tab of test browser and filter for "arcgisonline.com"
+- in tests/integration/component/extents-map/component-test.js replace `import { moduleForComponent, test } from 'ember-qunit';` with:
+
+```js
+import { moduleForComponent } from 'ember-qunit';
+import test from 'ember-sinon-qunit/test-support/test';
+```
+
+- replace the contents of the 'it renders' test with:
+
+```js
+// stub the newMap() function so that a map is not constructed
+const mapService = this.container.lookup('service:map-service');
+const stub = this.stub(mapService, 'newMap');
+
+// Set any properties with this.set('myProperty', 'value');
+// Handle any actions with this.on('myAction', function(val) { ... });
+
+this.render(hbs`{{extents-map}}`);
+
+// assert.equal(this.$().text().trim(), '');
+assert.ok(stub.calledOnce, 'newMap was called once');
+```
+
+- network tab should no longer show "arcgisonline.com" requests
+
 ## Showing item extents on the map
 
 ### Logic
