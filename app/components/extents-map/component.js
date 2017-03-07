@@ -11,10 +11,10 @@ export default Ember.Component.extend({
   didInsertElement () {
     this._super(...arguments);
     const mapService = this.get('mapService');
-    // create a map at this element's DOM node
-    mapService.newMap(this.elementId, config.APP.map.options);
     // show item extents once map loads
     mapService.on('load', this, this.showItemsOnMap);
+    // create a map at this element's DOM node
+    mapService.newMap(this.elementId, config.APP.map.options);
   },
 
   // whenever items change, update the map
