@@ -1,7 +1,38 @@
-# ambitious-arcgis-app
+# Building Ambitious Applications Integrated with ArcGIS Online/Portal
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repository contains the source code and resources from the DevSummit 2017 Building Ambitious Applications Integrated with ArcGIS Online/Portal pre-conference workshop.
+
+## Presenters
+
+- Dave Bouwman [@dbouwman](https://github.com/dbouwman)
+- Mike Juniper [@mjuniper](https://github.com/mjuniper)
+- Tom Wayson [@tomwayson](https://github.com/tomwayson)
+
+## Outline
+
+- Building an App
+  - [slides](http://mjuniper.github.io/presentations/ds2017/ambitious-apps-building.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/1-building-an-app.md)
+- Architecture
+  - [slides](http://mjuniper.github.io/presentations/ds2017/ambitious-apps-architecture.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/2-architecture.md)
+- Addons
+  - [slides](https://tomwayson.github.io/dev-summit-2017-ambitious-arcgis-workshop/addons.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/3-addons.md)
+- Auth
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/4-auth-me-baby.md)
+- Maps
+  - [slides](https://tomwayson.github.io/dev-summit-2017-ambitious-arcgis-workshop/maps.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/5-maps.md)
+- Deployment
+  - [slides](http://mjuniper.github.io/presentations/ds2017/ambitious-apps-deployment.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/6-deployment.md)
+
+## Source Code
+
+If you go through the above workshops, you should have an application that looks like the code in this repository.
+
+The source code in this repository was built before the worshop. The exact source code we built together in the class can be found at https://github.com/mjuniper/ambitious-arcgis-app
 
 ## Prerequisites
 
@@ -12,36 +43,6 @@ You will need the following things properly installed on your computer.
 * [Bower](https://bower.io/)
 * [Ember CLI](https://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
-
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd ambitious-arcgis-app`
-* `npm install`
-* `bower install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
