@@ -28,6 +28,14 @@ This repository contains the source code and resources from the DevSummit 2017 B
   - [slides](http://mjuniper.github.io/presentations/ds2017/ambitious-apps-deployment.html)
   - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/6-deployment.md)
 
+### Alternative Map Workshop
+
+After giving this workshop, we've released [ember-esri-loader](https://www.npmjs.com/package/ember-esri-loader), an addon to allow lazy loading the ArcGIS API for JavaScript in Ember applications. As an alternative to the above map workshop we presented which uses ember-cli-amd, you can follow this workshop:
+
+- Maps using ember-esri-loader
+  - [slides (same as above)](https://tomwayson.github.io/dev-summit-2017-ambitious-arcgis-workshop/maps.html)
+  - [workshop](https://github.com/tomwayson/ambitious-arcgis-app/blob/master/workshop/alt-5-ember-esri-loader-maps.md)
+
 ## Source Code
 
 If you go through the above workshops, you should have an application that looks like the code in this repository.
